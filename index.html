@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrovision Nepal | 360° Educational Inflatable Dome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #060713;
+            --bg-card: rgba(15, 23, 42, 0.45);
+            --border-glow: rgba(0, 242, 254, 0.2);
+            --neon-blue: #00f2fe;
+            --neon-purple: #4facfe;
+            --neon-green: #00ff87;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(79, 172, 254, 0.05) 0%, transparent 40%);
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .heading-accent {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--neon-blue);
+            letter-spacing: 3px;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(0, 242, 254, 0.5);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+            transform: translateY(-5px);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(6, 7, 19, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .btn-cyber {
+            position: relative;
+            padding: 12px 32px;
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+            border: none;
+            color: #000;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-cyber:hover {
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.8);
+            transform: scale(1.05);
+            color: #000;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(45deg, #128C7E, #25D366) !important;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4) !important;
+            color: #fff !important;
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 0 35px rgba(37, 211, 102, 0.8) !important;
+        }
+
+        /* Content Container Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        /* Tech Details Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .tech-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .tech-card {
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .tech-card i {
+            font-size: 2rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+        }
+
+        .tech-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tech-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Program Section styling */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .program-icon {
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glow);
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+            margin: 0 auto 1.5rem auto;
+        }
+
+        /* Dual Approach section */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .approach-card {
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .approach-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--neon-blue);
+        }
+
+        .approach-card.secondary::before {
+            background: var(--neon-purple);
+        }
+
+        .approach-card ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .approach-card li {
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .approach-card li i {
+            color: var(--neon-green);
+            font-size: 0.9rem;
+        }
+
+        /* Split Trust/Specs info layout */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 4fr 3fr;
+            gap: 3rem;
+        }
+
+        .spec-list {
+            list-style: none;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .spec-label {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .spec-value {
+            color: var(--neon-blue);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+        }
+
+        .partner-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .info-strip {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+
+        .info-strip i {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+        }
+
+        .info-strip p {
+            font-size: 1.1rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+        }
+
+        .info-strip a {
+            color: inherit;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .info-strip a:hover {
+            color: var(--neon-blue);
+        }
+
+        .contact-form {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 14px;
+            background: rgba(6, 7, 19, 0.5);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            transition: 0.3s;
+        }
+
+        .form-group select option {
+            background: #060713;
+            color: #fff;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        /* Footer Frame */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5rem;
+        }
+
+        /* Responsive Design Rules */
+        @media (max-width: 968px) {
+            .tech-grid, .approach-grid, .split-layout, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">
+            <i class="fa-solid fa-shuttle-space"></i> ASTROVISION
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">The Dome</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="heading-accent">Next-Generation Immersive Learning</span>
+            <h1>Bring Textbooks to Life in 360° Vision</h1>
+            <p>Transforming traditional classroom environments into breathtaking immersive visual experiences. Empowering students across Nepal to see, feel, and seamlessly understand complex concepts.</p>
+            <a href="#contact" class="btn-cyber">Book Dome Experience</a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <section id="about" style="margin-bottom: 8rem;">
+            <div class="tech-grid">
+                <div>
+                    <span class="heading-accent">The Technology</span>
+                    <h2 style="font-size: 2.3rem; margin-bottom: 1.5rem;">What is an Educational Inflatable Dome?</h2>
+                    <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
+                        It is a premium, highly portable planetarium-style environment configured directly within your school premises. Students step inside a dynamic 360° theater system where tailored cinematic content projects completely around them.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.7;">
+                        By wrapping educational tracks across a complete hemispherical array, complex subjects convert directly into memorable visual events that enhance deep memory retention.
+                    </p>
+                </div>
+                <div class="tech-features">
+                    <div class="tech-card glass-panel">
+                        <i class="fa-solid fa-vr-cardboard"></i>
+                        <h3>360° Projection</h3>
+                        <p>High-definition wraparound display system covering your full vision scale.</p>
+                    </div>
+                    <div class="tech-card glass-panel">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <h3>Surround Audio</h3>
+                        <p>Deep atmospheric audio fields ensuring total spatial clarity.</p>
+                    </div>
+                    <div class="tech-card glass-panel">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h3>Safety Matrix</h3>
+                        <p>Certified fire-retardant composites built with constant climate ventilation.</p>
+                    </div>
+                    <div class="tech-card glass-panel">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>Optimized Setup</h3>
+                        <p>Accommodates 25 to 40 students smoothly per individual session.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="programs" style="margin-bottom: 8rem;">
+            <div class="section-header">
+                <span class="heading-accent">Available Expeditions</span>
+                <h2>Our Immersive Programs</h2>
+            </div>
+
+            <div class="program-grid">
+                <div class="program-card glass-panel">
+                    <div class="program-icon"><i class="fa-solid fa-snowflake"></i></div>
+                    <h3 style="margin-bottom: 0.8rem;">Antarctica: The Frozen World</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Navigate Earth's most isolated landscape. Survey glaciers, changing climate systems, and polar biology tracking.</p>
+                </div>
+                <div class="program-card glass-panel">
+                    <div class="program-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <h3 style="margin-bottom: 0.8rem;">Space & Solar System</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Travel past orbital planets, stars, and deep cosmic structures designed to clarify planetary frameworks.</p>
+                </div>
+                <div class="program-card glass-panel">
+                    <div class="program-icon"><i class="fa-solid fa-globe"></i></div>
+                    <h3 style="margin-bottom: 0.8rem;">Earth & Climate Systems</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Unpack global ecosystems, oceanic loops, forest topologies, and strategic environmental frameworks.</p>
+                </div>
+                <div class="program-card glass-panel">
+                    <div class="program-icon"><i class="fa-solid fa-paw"></i></div>
+                    <h3 style="margin-bottom: 0.8rem;">Wildlife & Global Nature</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Experience intimate animal encounters and diverse environments mapping vital planetary biology.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 8rem;">
+            <div class="section-header">
+                <span class="heading-accent">Targeted Metrics</span>
+                <h2>Class-Wise Adaptation Strategy</h2>
+            </div>
+            <div class="approach-grid">
+                <div class="approach-card glass-panel">
+                    <span class="heading-accent" style="color: var(--neon-blue);">Primary Level</span>
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Classes 1 to 5</h3>
+                    <p style="color: var(--text-muted);">Crafted specifically to activate critical early curiosity using sensory narrative structures.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> Story-driven conceptual layouts</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Smooth structural narration speeds</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Vivid, organic science foundations</li>
+                    </ul>
+                </div>
+                <div class="approach-card glass-panel secondary">
+                    <span class="heading-accent" style="color: var(--neon-purple);">Secondary Level</span>
+                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem;">Classes 6 to 10</h3>
+                    <p style="color: var(--text-muted);">Curriculum-synchronized modules focused on rigorous physical and environmental models.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-check"></i> Core systematic scientific focus</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Advanced meteorological analytics</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Critical investigation assignments</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-bottom: 5rem;">
+            <div class="split-layout">
+                <div>
+                    <span class="heading-accent">Operational Networks</span>
+                    <h2 style="margin-bottom: 1.5rem;">Who Partners With Us</h2>
+                    <p style="color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
+                        Astrovision Nepal configures complete turnkey installations inside multi-tier networks. Our dual-language formats (Nepali and English) ensure absolute alignment with varied instructional settings.
+                    </p>
+                    <div class="partner-tags">
+                        <span class="tag">Private Academies</span>
+                        <span class="tag">Government Institutions</span>
+                        <span class="tag">Municipal Boards</span>
+                        <span class="tag">NGOs & INGOs</span>
+                        <span class="tag">Corporate CSR Projects</span>
+                    </div>
+                </div>
+                <div class="glass-panel" style="padding: 2rem;">
+                    <h3 style="font-family:'Orbitron'; font-size:1.1rem; margin-bottom:1.5rem; color:#fff;">SYSTEM MATRIX</h3>
+                    <div class="spec-list">
+                        <div class="spec-item"><span class="spec-label">Platform Profile</span><span class="spec-value">Mobile 360° Dome</span></div>
+                        <div class="spec-item"><span class="spec-label">Media Resolution</span><span class="spec-value">Full-Dome HD</span></div>
+                        <div class="spec-item"><span class="spec-label">Deployment Cycle</span><span class="spec-value">45–60 Minutes</span></div>
+                        <div class="spec-item"><span class="spec-label">Language Framework</span><span class="spec-value">Nepali / English</span></div>
+                        <div class="spec-item"><span class="spec-label">Operational Staff</span><span class="spec-value">Full Astrovision Team Included</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-header">
+                <span class="heading-accent">Establish Connection</span>
+                <h2>Contact Astrovision Headquarters</h2>
+            </div>
+            
+            <div class="contact-grid">
+                <div>
+                    <div class="info-strip glass-panel">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <span class="heading-accent">Deployment Hub</span>
+                            <p>Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                    <div class="info-strip glass-panel">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <div>
+                            <span class="heading-accent">Comms Channel (Ncell)</span>
+                            <p><a href="tel:9700044269">9700044269</a></p>
+                        </div>
+                    </div>
+                    <div class="info-strip glass-panel">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <div>
+                            <span class="heading-accent">Comms Channel (NTC)</span>
+                            <p><a href="tel:9764399847">9764399847</a></p>
+                        </div>
+                    </div>
+                    <div class="info-strip glass-panel">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <div>
+                            <span class="heading-accent">Digital Interface</span>
+                            <p><a href="mailto:astrovisionnepal360@gmail.com">astrovisionnepal360@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form glass-panel" id="whatsappForm">
+                    <div class="form-group">
+                        <input type="text" id="schoolName" placeholder="School / Organization Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="schoolEmail" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="schoolPhone" placeholder="Mobile / Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="programSelected" required>
+                            <option value="" disabled selected>Select Preferred Program Theme</option>
+                            <option value="Space & Solar System">Space & Solar System</option>
+                            <option value="Antarctica: The Frozen World">Antarctica: The Frozen World</option>
+                            <option value="Earth, Environment & Climate">Earth, Environment & Climate</option>
+                            <option value="Wildlife & Nature">Wildlife & Nature</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" id="schoolMessage" placeholder="Additional details or estimated date requests..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-cyber btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Send via WhatsApp</button>
+                </form>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Astrovision Nepal. Engineering the future of visual education. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect fields
+            const school = document.getElementById('schoolName').value;
+            const email = document.getElementById('schoolEmail').value;
+            const phone = document.getElementById('schoolPhone').value;
+            const program = document.getElementById('programSelected').value;
+            const message = document.getElementById('schoolMessage').value;
+            
+            // Target phone number (Astrovision Nepal's Primary Contact Line)
+            const targetPhone = "9779700044269"; 
+            
+            // Construct organized message structure
+            const textBlock = `*NEW BOOKING INQUIRY - ASTROVISION NEPAL*%0A` +
+                              `----------------------------------------%0A` +
+                              `*School/Org:* ${encodeURIComponent(school)}%0A` +
+                              `*Email:* ${encodeURIComponent(email)}%0A` +
+                              `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                              `*Theme:* ${encodeURIComponent(program)}%0A` +
+                              `*Details:* ${encodeURIComponent(message)}`;
+            
+            // Generate link interface and execute redirect
+            const whatsappUrl = `https://wa.me/${targetPhone}?text=${textBlock}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+
+</body>
+</html>
