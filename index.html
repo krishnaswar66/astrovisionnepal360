@@ -9,14 +9,14 @@
     
     <style>
         :root {
-            --bg-dark: #060713;
-            --bg-card: rgba(15, 23, 42, 0.45);
-            --border-glow: rgba(0, 242, 254, 0.2);
-            --neon-blue: #00f2fe;
-            --neon-purple: #4facfe;
-            --neon-green: #00ff87;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
+            --bg-bright: #f8fafc;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --border-glow: rgba(0, 180, 216, 0.25);
+            --neon-blue: #0077b6;
+            --neon-purple: #7209b7;
+            --neon-green: #10b981;
+            --text-main: #0f172a;
+            --text-muted: #475569;
         }
 
         * {
@@ -28,12 +28,12 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-bright);
             color: var(--text-main);
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(79, 172, 254, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 10% 20%, rgba(0, 119, 182, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(114, 9, 183, 0.08) 0%, transparent 50%);
         }
 
         h1, h2, h3, .nav-logo {
@@ -52,19 +52,20 @@
             font-size: 0.9rem;
         }
 
-        /* Glassmorphism utility */
+        /* Glassmorphism utility for Light Mode */
         .glass-panel {
             background: var(--bg-card);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-glow);
             border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .glass-panel:hover {
-            border-color: rgba(0, 242, 254, 0.5);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+            border-color: rgba(0, 119, 182, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 119, 182, 0.15);
             transform: translateY(-5px);
         }
 
@@ -78,9 +79,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(6, 7, 19, 0.7);
+            background: rgba(248, 250, 252, 0.85);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
         }
 
         .nav-logo {
@@ -112,7 +113,6 @@
 
         .nav-links a:hover, .nav-links a.active {
             color: var(--neon-blue);
-            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
         }
 
         /* Hero Section */
@@ -137,7 +137,7 @@
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+            background: linear-gradient(135deg, #0f172a 30%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -157,7 +157,7 @@
             padding: 12px 32px;
             background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
             border: none;
-            color: #000;
+            color: #fff;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             font-size: 0.9rem;
@@ -166,25 +166,24 @@
             border-radius: 4px;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
             text-decoration: none;
             display: inline-block;
         }
 
         .btn-cyber:hover {
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.8);
+            box-shadow: 0 6px 25px rgba(0, 119, 182, 0.5);
             transform: scale(1.05);
-            color: #000;
         }
 
         .btn-whatsapp {
             background: linear-gradient(45deg, #128C7E, #25D366) !important;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4) !important;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3) !important;
             color: #fff !important;
         }
 
         .btn-whatsapp:hover {
-            box-shadow: 0 0 35px rgba(37, 211, 102, 0.8) !important;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5) !important;
         }
 
         /* Content Container Layout */
@@ -201,7 +200,7 @@
 
         .section-header h2 {
             font-size: 2.5rem;
-            color: #fff;
+            color: var(--text-main);
         }
 
         /* Tech Details Grid */
@@ -235,6 +234,7 @@
             font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             text-transform: uppercase;
+            color: var(--text-main);
         }
 
         .tech-card p {
@@ -259,7 +259,7 @@
             height: 70px;
             line-height: 70px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(0, 119, 182, 0.05);
             border: 1px solid var(--border-glow);
             font-size: 1.8rem;
             color: var(--neon-blue);
@@ -326,7 +326,7 @@
             display: flex;
             justify-content: space-between;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
         }
 
         .spec-label {
@@ -348,13 +348,14 @@
         }
 
         .tag {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 119, 182, 0.05);
+            border: 1px solid rgba(0, 119, 182, 0.15);
             padding: 8px 18px;
             border-radius: 8px;
             font-family: 'Rajdhani', sans-serif;
             font-weight: 600;
             letter-spacing: 1px;
+            color: var(--text-main);
         }
 
         /* Contact Section Grid */
@@ -403,33 +404,34 @@
         .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             padding: 14px;
-            background: rgba(6, 7, 19, 0.5);
+            background: #ffffff;
             border: 1px solid var(--border-glow);
             border-radius: 8px;
-            color: #fff;
+            color: var(--text-main);
             font-family: 'Inter', sans-serif;
             transition: 0.3s;
         }
 
         .form-group select option {
-            background: #060713;
-            color: #fff;
+            background: #ffffff;
+            color: var(--text-main);
         }
 
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
             outline: none;
             border-color: var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+            box-shadow: 0 0 15px rgba(0, 119, 182, 0.15);
         }
 
         /* Footer Frame */
         footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(15, 23, 42, 0.08);
             padding: 2rem 5%;
             text-align: center;
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-top: 5rem;
+            background: rgba(248, 250, 252, 0.6);
         }
 
         /* Responsive Design Rules */
@@ -581,7 +583,7 @@
                     </div>
                 </div>
                 <div class="glass-panel" style="padding: 2rem;">
-                    <h3 style="font-family:'Orbitron'; font-size:1.1rem; margin-bottom:1.5rem; color:#fff;">SYSTEM MATRIX</h3>
+                    <h3 style="font-family:'Orbitron'; font-size:1.1rem; margin-bottom:1.5rem; color:var(--text-main);">SYSTEM MATRIX</h3>
                     <div class="spec-list">
                         <div class="spec-item"><span class="spec-label">Platform Profile</span><span class="spec-value">Mobile 360° Dome</span></div>
                         <div class="spec-item"><span class="spec-label">Media Resolution</span><span class="spec-value">Full-Dome HD</span></div>
